@@ -4,6 +4,6 @@
 //3 The size limit for the json passed in
 export default {
     "port": 3005,
-    "mongoUrl": 'mongodb://localhost:27017/gyms',
+    "mongoUrl": 'mongodb://localhost:27017/mongo',
     "bodyLimit": '100kb'
 }
