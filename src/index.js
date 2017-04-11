@@ -12,10 +12,21 @@ let app = express();
 
 app.server = http.createServer(app);
 
-app.use('/v1',routes);
+//middleware
+//parse application/json
+app.use(bodyParser.json({
+    //limit the size of the data passed in
+    limit : config.bodyLimit
+}));
 
+//any request that comes in on /gym go to routes
+app.use('/gym',routes);
+
+//telling the server to listen of port
 app.server.listen(config.port);
 
+//logging port to the console
 console.log(`stated server on port ${app.server.address().port}`);
 
+//only works with import
 export default app;
