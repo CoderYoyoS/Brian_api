@@ -4,6 +4,6 @@
 //3 The size limit for the json passed in
 export default {
     "port": 3005,
-    "mongoUrl": 'mongodb://localhost:27017/mongo',
+    "mongoUrl": 'mongodb://coderyoyo:admin@ds159050.mlab.com:59050/chatbotdb',
     "bodyLimit": '100kb'
 }
