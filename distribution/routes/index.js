@@ -12,13 +12,13 @@ var _config = require('../config');
 
 var _config2 = _interopRequireDefault(_config);
 
-var _gym = require('../controller/gym');
-
-var _gym2 = _interopRequireDefault(_gym);
-
 var _middleware = require('../middleware');
 
 var _middleware2 = _interopRequireDefault(_middleware);
+
+var _gym = require('../controller/gym');
+
+var _gym2 = _interopRequireDefault(_gym);
 
 var _db = require('../db');
 
@@ -29,13 +29,13 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var router = (0, _express2.default)();
 
 //connect to db
+
+
+// this create the database connection
 (0, _db2.default)(function (db) {
     router.use((0, _middleware2.default)({ config: _config2.default, db: db }));
+    router.use('/gym', (0, _gym2.default)({ config: _config2.default, db: db }));
 });
-
-router.use((0, _middleware2.default)({ config: _config2.default, db: db }));
-
-router.use('/gym', (0, _gym2.default)({ config: _config2.default, db: db }));
 
 exports.default = router;
 //# sourceMappingURL=index.js.map
