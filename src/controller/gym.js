@@ -29,7 +29,7 @@ export default ({config, db})=>{
     });
 
     //route 2 get the times
-    api.get('/time',(req,res)=>{
+    api.get('/openingtimes',(req,res)=>{
         res.send('- Gym Open Hours -\nMondays 8am-7:30pm\nTuesdays 8am-7.30pm\nWednesdays 8am-7:30pm\nThursdays 8am-7:30pm\nFridays 8am-7:30pm\nSaturdays 10am - 2pm\nSundays Closed');
     });
 
