@@ -18,7 +18,6 @@ exports.default = function (_ref) {
 
     var api = (0, _express.Router)();
 
-    //route 1 get day for classes
     api.get('/classes/:pickedDay', function (req, res) {
 
         var dayPicked = req.params.pickedDay;
@@ -41,7 +40,45 @@ exports.default = function (_ref) {
         });
     });
 
-    //route 2 get the times
+    api.get('/equipment', function (req, res) {
+
+        _gym2.default.find({ type: 'equipment' }, function (err, gym) {
+            if (err) {
+                res.send(err);
+            }
+
+            var jsonString = gym;
+            var json = JSON.stringify(jsonString);
+            json = JSON.parse(json);
+
+            var message = '';
+            for (var i = 0; i < 4; i++) {
+                message += json[0]['gymequipment'][i] + '\n';
+            }
+
+            res.send('Gym equipment includes \n' + message);
+        });
+    });
+    api.get('/facilities', function (req, res) {
+
+        _gym2.default.find({ type: 'facilities' }, function (err, gym) {
+            if (err) {
+                res.send(err);
+            }
+
+            var jsonString = gym;
+            var json = JSON.stringify(jsonString);
+            json = JSON.parse(json);
+
+            var message = '';
+            for (var i = 0; i < 4; i++) {
+                message += json[0]['gymfacilities'][i] + '\n';
+            }
+
+            res.send('Gym facilities includes \n' + message);
+        });
+    });
+
     api.get('/openingtimes', function (req, res) {
         res.send('- Gym Open Hours -\nMondays 8am-7:30pm\nTuesdays 8am-7.30pm\nWednesdays 8am-7:30pm\nThursdays 8am-7:30pm\nFridays 8am-7:30pm\nSaturdays 10am - 2pm\nSundays Closed');
     });
