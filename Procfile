@@ -1,1 +1,1 @@
-web: node distribution/index.js
+web: node src/index.js
