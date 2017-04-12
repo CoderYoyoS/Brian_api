@@ -23,7 +23,7 @@ app.use(bodyParser.json({
 app.use('/gym',routes);
 
 //telling the server to listen of port
-app.server.listen(process.env.PORT || 5000);
+app.server.listen(process.env.PORT || config.port);
 
 //logging port to the console
 console.log(`stated server on port ${app.server.address().port}`);
