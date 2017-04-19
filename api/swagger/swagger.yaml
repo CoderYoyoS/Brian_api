@@ -1,0 +1,82 @@
+swagger: "2.0"
+info:
+  version: "1.0.0"
+  title: Gym API
+host: localhost:5000
+basePath: /gym
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /openingtimes:
+    get:
+      description: Get the opening times for the gym
+      summary: A list of opening times for the gym
+      operationId: opening times operation
+      parameters:
+        - name: message
+          in: query
+          description: message from facebook bot
+          type: string
+      responses:
+        '200':
+          description: Valid
+  /equipment:
+    get:
+      description: Get the equipment in the gym
+      summary: A list of equipment in the gym
+      operationId: equipment operation
+      parameters:
+        - name: message
+          in: query
+          description: message from facebook
+          type: string
+      responses:
+        '200':
+          description: Valid
+          
+  /facilities:
+    get:
+      description: Get the facilities that the gym provides
+      summary: A list of facilities the gym provides
+      operationId: facilities operation
+      parameters:
+        - name: message
+          in: query
+          description: message from facebook bot
+          type: string
+      responses:
+        '200':
+          description: Valid
+          
+  /classes/{daypicked}:
+    get:
+      description: Get the classes that the gym provides
+      summary: A list of classes that the gym provides
+      operationId: classes operation
+      parameters:
+        - name: daypicked
+          in: path
+          description: message from facebook bot
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Valid
+          
+  /join:
+    get:
+      description: Get the information needed to join the gym
+      summary: Information needed to join the gym
+      operationId: join the gym operation
+      parameters:
+        - name: message
+          in: query
+          description: message from facebook bot
+          type: string
+      responses:
+        '200':
+          description: Valid
